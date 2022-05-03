@@ -1,16 +1,36 @@
-import orderbyprops from '../orderbyprops';
+import Team from '../team';
 
-test('orderbyprops', () => {
-  const obj = {
-    name: 'мечник', health: 10, level: 2, attack: 80, defence: 40,
-  };
-  const result = orderbyprops(obj, ['name', 'level']);
+test('Team', () => {
+  const team = new Team();
+  console.log(team);
+  const result = [];
+  for (let item of team) {
+    console.log(item);
+    result.push(item);
+  }
   const tobe = [
-    { key: 'name', value: 'мечник' }, // порядок взят из массива с ключами
-    { key: 'level', value: 2 }, // порядок взят из массива с ключами
-    { key: 'attack', value: 80 }, // порядок по алфавиту (т.к. в массиве с ключами нет значения "attack")
-    { key: 'defence', value: 40 }, // порядок по алфавиту (т.к. в массиве с ключами нет значения "defence")
-    { key: 'health', value: 10 }, // порядок по алфавиту (т.к. в массиве с ключами нет значения "health")
-  ];
+    {
+        name: 'Лучник',
+        type: 'Bowman',
+        health: 50,
+        level: 1,
+        attack: 40,
+        defence: 10
+    }, {
+        name: 'Демон',
+        type: 'Daemon',
+        health: 50,
+        level: 1,
+        attack: 40,
+        defence: 10
+    }, {
+        name: 'Мечник',
+        type: 'Swordsman',
+        health: 50,
+        level: 1,
+        attack: 40,
+        defence: 10
+    }
+];
   expect(result).toEqual(tobe);
 });
